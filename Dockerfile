@@ -6,7 +6,7 @@ LABEL Description="vsftpd Docker image based on Alpine. Supports passive mode, S
 	Version="1.0"
 
 RUN apt update -y && apt dist-upgrade -y
-RUN apt install -y vsftpd db-util
+RUN apt install -y vsftpd db-util iproute2
 
 ENV FTP_USER=**String**
 ENV FTP_PASS=**Random**
