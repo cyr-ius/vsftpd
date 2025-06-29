@@ -76,7 +76,7 @@ cat << EOB
 	· Redirect vsftpd log to STDOUT: No.
 EOB
 else
-    /usr/bin/ln -sf /dev/stdout $LOG_FILE
+    ln -sf /dev/stdout $LOG_FILE
 fi
 
 # Run vsftpd:
