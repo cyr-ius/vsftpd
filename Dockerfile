@@ -3,7 +3,7 @@ FROM alpine:3.22
 ARG USER_ID=14
 ARG GROUP_ID=50
 
-LABEL Description="vsftpd Docker image based on Centos 7. Supports passive mode, SSL and virtual users." \
+LABEL Description="vsftpd Docker image based on Alpine. Supports passive mode, SSL and virtual users." \
 	License="Apache License 2.0" \
 	Usage="docker run -d -p [HOST PORT NUMBER]:21 -v [HOST FTP HOME]:/home/vsftpd fauria/vsftpd" \
 	Version="1.0"
@@ -37,9 +37,9 @@ ENV SSL_CIPHERS=HIGH
 
 COPY vsftpd.conf /etc/vsftpd/
 COPY vsftpd_virtual /etc/pam.d/
-COPY run-vsftpd.sh /usr/sbin/
+COPY run-vsftpd.sh /usr/bin/
 
-RUN chmod +x /usr/sbin/run-vsftpd.sh
+RUN chmod +x /usr/bin/run-vsftpd.sh
 RUN mkdir -p /home/vsftpd/
 RUN chown -R ftp:ftp /home/vsftpd/
 
@@ -48,5 +48,4 @@ VOLUME /var/log/vsftpd
 VOLUME /etc/vsftpd/cert
 
 EXPOSE 20 21
-
-CMD ["/usr/sbin/run-vsftpd.sh"]
+CMD ["/usr/bin/run-vsftpd.sh"]
