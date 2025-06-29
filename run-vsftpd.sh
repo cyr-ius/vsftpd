@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # If no env var for FTP_USER has been specified, use 'admin':
 if [ "$FTP_USER" = "**String**" ]; then
@@ -63,7 +63,7 @@ if [ ! $LOG_STDOUT ]; then
 cat << EOB
 	*************************************************
 	*                                               *
-	*    Docker image: fauria/vsftpd                *
+	*    Docker image: cyr-ius/vsftpd                *
 	*    https://github.com/fauria/docker-vsftpd    *
 	*                                               *
 	*************************************************

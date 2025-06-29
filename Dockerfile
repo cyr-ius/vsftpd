@@ -1,18 +1,12 @@
-FROM alpine:3.22
-
-ARG USER_ID=14
-ARG GROUP_ID=50
+FROM ubuntu:rolling
 
 LABEL Description="vsftpd Docker image based on Alpine. Supports passive mode, SSL and virtual users." \
 	License="Apache License 2.0" \
-	Usage="docker run -d -p [HOST PORT NUMBER]:21 -v [HOST FTP HOME]:/home/vsftpd fauria/vsftpd" \
+	Usage="docker run -d -p [HOST PORT NUMBER]:21 -v [HOST FTP HOME]:/home/vsftpd cyr-ius/vsftpd" \
 	Version="1.0"
 
-RUN apk add vsftpd db-utils db coreutils linux-pam
-
-RUN sed -i "s/^ftp:x:[0-9]*:[0-9]*/ftp:x:${USER_ID}:${GROUP_ID}/" /etc/passwd \
- && sed -i "s/^ftp:x:[0-9]*/ftp:x:${GROUP_ID}/" /etc/group
-
+RUN apt update -y && apt dist-upgrade -y
+RUN apt install -y vsftpd db-util
 
 ENV FTP_USER=**String**
 ENV FTP_PASS=**Random**
