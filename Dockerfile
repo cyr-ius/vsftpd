@@ -8,7 +8,7 @@ LABEL Description="vsftpd Docker image based on Alpine. Supports passive mode, S
 	Usage="docker run -d -p [HOST PORT NUMBER]:21 -v [HOST FTP HOME]:/home/vsftpd fauria/vsftpd" \
 	Version="1.0"
 
-RUN apk add vsftpd db-utils db
+RUN apk add vsftpd db-utils db symlinks
 
 RUN sed -i "s/^ftp:x:[0-9]*:[0-9]*/ftp:x:${USER_ID}:${GROUP_ID}/" /etc/passwd \
  && sed -i "s/^ftp:x:[0-9]*/ftp:x:${GROUP_ID}/" /etc/group
