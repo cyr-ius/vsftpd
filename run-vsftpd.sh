@@ -50,8 +50,8 @@ if [ "$SSL_ENABLE" = "YES" ]; then
 	echo "ssl_tlsv1=YES" >> /etc/vsftpd/vsftpd.conf
 	echo "ssl_sslv2=NO" >> /etc/vsftpd/vsftpd.conf
 	echo "ssl_sslv3=NO" >> /etc/vsftpd/vsftpd.conf
-	echo "require_ssl_reuse=NO" >> /etc/vsftpd/vsftpd.conf
-	echo "ssl_ciphers=HIGH" >> /etc/vsftpd/vsftpd.conf
+	echo "require_ssl_reuse=${SSL_REUSE}" >> /etc/vsftpd/vsftpd.conf
+	echo "ssl_ciphers=${SSL_CIPHERS}" >> /etc/vsftpd/vsftpd.conf
 	echo "rsa_cert_file=/etc/vsftpd/cert/$TLS_CERT" >> /etc/vsftpd/vsftpd.conf
 	echo "rsa_private_key_file=/etc/vsftpd/cert/$TLS_KEY" >> /etc/vsftpd/vsftpd.conf
 fi
