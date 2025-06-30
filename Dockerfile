@@ -27,6 +27,7 @@ ENV TLS_CERT=cert.pem
 ENV TLS_KEY=key.pem
 ENV SSL_REUSE=YES
 ENV SSL_CIPHERS=HIGH
+ENV ENABLE_TLSv1=YES
 
 
 COPY vsftpd.conf /etc/vsftpd/
