@@ -39,6 +39,7 @@ echo "local_umask=${LOCAL_UMASK}" >> /etc/vsftpd/vsftpd.conf
 echo "xferlog_std_format=${XFERLOG_STD_FORMAT}" >> /etc/vsftpd/vsftpd.conf
 echo "pasv_promiscuous=${PASV_PROMISCUOUS}" >> /etc/vsftpd/vsftpd.conf
 echo "port_promiscuous=${PORT_PROMISCUOUS}" >> /etc/vsftpd/vsftpd.conf
+echo "listen_ipv6=${LISTEN_IPV6}" >> /etc/vsftpd/vsftpd.conf
 
 # Add ssl options
 if [ "$SSL_ENABLE" = "YES" ]; then
